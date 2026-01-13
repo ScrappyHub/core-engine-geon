@@ -1,0 +1,26 @@
+## GOVERNANCE INHERITANCE (ACKNOWLEDGEMENT)
+This engine is permanently bound by CORE governance, including:
+
+- CORE_CONSTITUTIONAL_STOP_LAYER.md
+- CORE_PLATFORM_CONSTITUTION.md
+- CORE_ENGINE_REGISTRY_AND_VERTICAL_INHERITANCE_LAW.md
+- CORE_GOVERNANCE_INDEX_CHAIN_OF_AUTHORITY.md
+- CORE_ENGINE_REGISTRY_CONTRACT.md
+
+If any content in this repository conflicts with CORE governance,
+CORE governance prevails immediately.
+
+## Scope (Engine-Specific)
+GEON performs deterministic Earth-frame computations on sealed inputs:
+- explicit frame transforms (LOCAL_CARTESIAN | EARTH_ECEF | EARTH_ENU)
+- finite difference V1 gradients/divergence/laplacian on ordered grids
+- flux integrals across declared surfaces
+- derived indices computed strictly from provided fields (non-forecast)
+
+## Prohibitions (Engine-Specific)
+GEON MUST NOT:
+- fetch live Earth data or external feeds
+- emit forecasts, warnings, or alerts
+- infer identity, intent, attribution, or causation
+- emit classification, conclusions, or directives (vertical lens only)
+- accept peer delivery
