@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CORE Engine Input Schema",
+  "schema_version": "1.0.0",
+  "engine_code": "GEON",
+  "engine_version": "1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "project_id": { "type": "string", "minLength": 1 },
+    "inputs": {
+      "type": "object",
+      "description": "Domain inputs provided by CORE only",
+      "additionalProperties": true
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Deterministic parameters (frame/scheme/boundary/ordering/float mode).",
+      "additionalProperties": true
+    },
+    "context": {
+      "type": "object",
+      "description": "Non-authoritative run context. Engines must ignore forbidden keys if present.",
+      "additionalProperties": true,
+      "x_forbidden_fields": [
+        "user_email",
+        "billing_tier",
+        "role",
+        "permissions",
+        "feature_flags"
+      ]
+    }
+  },
+  "required": ["run_id", "project_id", "inputs", "parameters"]
+}
