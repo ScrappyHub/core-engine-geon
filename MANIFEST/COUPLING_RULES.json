@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "engine_code": "GEON",
+  "engine_version": "1.0.0",
+  "delivery_model": "CORE_ONLY",
+  "core_mediated_coupling": true,
+  "allowed_inputs_from_other_engines": [
+    { "engine_code": "ARES", "via": "CORE_ONLY" },
+    { "engine_code": "HYDRA", "via": "CORE_ONLY" },
+    { "engine_code": "THERMOS", "via": "CORE_ONLY" },
+    { "engine_code": "MAGNETAR", "via": "CORE_ONLY" },
+    { "engine_code": "LITHOS", "via": "CORE_ONLY" },
+    { "engine_code": "ATMOS", "via": "CORE_ONLY" },
+    { "engine_code": "KINETIC", "via": "CORE_ONLY" },
+    { "engine_code": "CRYSTAL", "via": "CORE_ONLY" },
+    { "engine_code": "SIGNAL", "via": "CORE_ONLY" },
+    { "engine_code": "RGSR", "via": "CORE_ONLY" }
+  ],
+  "allowed_outputs_to_other_engines": [
+    { "engine_code": "RGSR", "via": "CORE_ONLY" }
+  ],
+  "direct_engine_to_engine_calls": false
+}
