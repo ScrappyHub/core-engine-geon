@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CORE Engine Output Schema",
+  "schema_version": "1.0.0",
+  "engine_code": "GEON",
+  "engine_version": "1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "engine_code": { "type": "string", "const": "GEON" },
+        "engine_version": { "type": "string", "minLength": 1 }
+      },
+      "required": ["engine_code", "engine_version"]
+    },
+    "outputs": {
+      "type": "object",
+      "description": "Raw domain outputs only",
+      "additionalProperties": true
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Compute metrics (timings, iterations). Not business metrics.",
+      "additionalProperties": true
+    },
+    "inputs_hash": { "type": "string", "minLength": 64, "maxLength": 64 },
+    "outputs_hash": { "type": "string", "minLength": 64, "maxLength": 64 },
+    "semantics": {
+      "type": "string",
+      "description": "Truth engines must emit RAW_TRUTH. RGSR must emit CORRELATION_ONLY.",
+      "enum": ["RAW_TRUTH", "CORRELATION_ONLY", "DETERMINISTIC_TRANSFORM"]
+    },
+    "input_artifact_index": {
+      "type": "array",
+      "description": "Hash-referenced list of upstream artifacts (required for RGSR; optional for truth engines)",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "engine_code": { "type": "string" },
+          "artifact_name": { "type": "string" },
+          "sha256": { "type": "string", "minLength": 64, "maxLength": 64 }
+        },
+        "required": ["engine_code", "artifact_name", "sha256"]
+      }
+    }
+  },
+  "required": ["run_id", "engine", "outputs", "metrics", "inputs_hash", "outputs_hash", "semantics"]
+}
