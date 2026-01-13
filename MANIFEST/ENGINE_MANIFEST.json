@@ -1,0 +1,54 @@
+{
+  "manifest_version": "1.0.0",
+  "engine_code": "GEON",
+  "engine_name": "Geophysical Numerics & Earth-Frame Measurement Engine",
+  "engine_role": "TRUTH_ADJACENT_COMPUTE",
+  "domain": {
+    "domain_class": "GEOSCIENCE",
+    "domain_detail": "EARTH_FRAME_NUMERICS"
+  },
+  "engine_version": "1.0.0",
+  "invariants": {
+    "deterministic": true,
+    "headless": true,
+    "network_access": false,
+    "user_aware": false,
+    "governance_aware": false,
+    "side_effect_free": true
+  },
+  "io": {
+    "input_schema_file": "MANIFEST/INPUT_SCHEMA.json",
+    "output_schema_file": "MANIFEST/OUTPUT_SCHEMA.json",
+    "coupling_rules_file": "MANIFEST/COUPLING_RULES.json"
+  },
+  "sealing": {
+    "sealing_spec_file": "SEALING/SEALING_SPEC.md",
+    "canonical_json": true,
+    "hash_algo": "sha256",
+    "hash_canonicalization": "JCS_RFC8785"
+  },
+  "artifact_bundle": {
+    "manifest_files": [
+      "MANIFEST/ENGINE_MANIFEST.json",
+      "MANIFEST/INPUT_SCHEMA.json",
+      "MANIFEST/OUTPUT_SCHEMA.json",
+      "MANIFEST/COUPLING_RULES.json",
+      "SEALING/SEALING_SPEC.md",
+      "GOVERNANCE/ENGINE_GOVERNANCE.md",
+      "CAPABILITIES/PHYSICS_CAPABILITIES.md",
+      "RUN_BUNDLE/README.md",
+      "RUN_BUNDLE/GEON_REQUIRED_ARTIFACTS.md"
+    ]
+  },
+  "compatibility": {
+    "core_min_version": "1.0.0",
+    "core_contracts_required": [
+      "CORE_CONSTITUTIONAL_STOP_LAYER",
+      "CORE_PLATFORM_CONSTITUTION",
+      "CORE_ENGINE_REGISTRY_AND_VERTICAL_INHERITANCE_LAW",
+      "CORE_ENGINE_REGISTRY_CONTRACT"
+    ]
+  },
+  "outputs_are_interpretation": false,
+  "notes": "Deterministic Earth-frame math only (frame transforms, gradients/divergence/laplacian, flux integrals, derived indices). No forecasts, causation, intent, attribution, classification, or directives."
+}
